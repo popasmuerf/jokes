@@ -1,0 +1,56 @@
+<h1>
+  What did the cheese say when it looked in the mirror ?
+  <p>Halloumi (hello me)</p>
+</h1>
+<!--
+  In Angular we can take nateive core features
+  of HTML and enhance them ...for instance
+  we can take HTML attributes and make them more
+  dynamic by wrapping them in the "[]" brackets.
+  In this way can bind values dynamically to html 
+  attributes where as before it was :
+
+    <p hidden>{{joke.punchline}} >
+    
+  and now it is :
+
+      <p [hidden] = false> {{joke.punkchline}}</p>
+
+  This is known as input Proper binding
+
+
+  HTML Attribute vs DOM property.
+  ==========================================
+  There is a very important distinction between an HTML 
+  attribute and a DOM property.  We need to understand this
+  if we are to make use of binding in Agular
+
+
+  The browser reads HTML and then generates a DOM
+  from it.  Changing the HTML does not automatically
+  update the rendared webpage unless the user refreshes the
+  browser, changing the DOM however instantly updates the
+  webpage, as the DOM is in memory
+
+  There is mostly a 1-to-1  mapping between
+  the names and values of HTML attributes and their equivalant
+  DOM properties, but not always
+
+  Agular doesn't manipulate HTML attributes, it manipulates
+  the DOM properties because the DOM is what actually gets
+  displayed.
+
+  So when we wirte [hidden] we are manpulating the DOM
+  propety and not the HTML attribute
+
+  This is why this is called Iput Property Binding and not 
+  Input Attribute Binding.
+
+  [hidden] is the DOM propert.
+
+-->
+<div class="card card-block" *ngFor="let joke of jokes">
+  <h4 class="card-title">{{joke.setup}}</h4>
+  <p class="card-text" [hidden] = "joke.hide">{{joke.punchline}}</p>
+  <a class="btn btn-primary"(click)="joke.toggle(joke)">{{joke.buttonName}}</a>
+</div>
