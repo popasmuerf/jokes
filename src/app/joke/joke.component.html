@@ -1,9 +1,44 @@
-<h1>
-  What did the cheese say when it looked in the mirror ?
-  <p>Halloumi (hello me)</p>
-</h1>
 
-<div class="card card-block" *ngFor="let joke of jokes">
-  <h4 class="card-title">{{joke.setup}}</h4>
-  <p class="card-text">{{joke.punchline}}</p>
+
+<!--
+  We have to be sure to set the actual joke propety  {{joke}}
+  to an actual extant joke object.  We do that in the immeidate
+  parrent component via ensuring that the loop
+  in the joke list looks like this:
+
+
+  <div *ngFor "joke of jokes" [joke] = j> ...<div>
+
+  
+  We also need to make sure the joke field in our joke component
+  class is set to "injetiable" ...so our parent component can actually
+  proved a reference to the joke for our joke component...as so..
+
+  export class JokeComponent implements OnInit {
+    @Injectable() joke:Joke
+
+  }
+
+
+  What if the field changes names ?  We can avoid a potentially
+  very expensive refactor by providing an abstraction named 'joke'
+  to the @Injectble() annottation as so...
+
+
+  export class JokeComponent implements OnInit {
+    @Injectable('joke') data:Joke
+
+  }
+
+
+
+
+-->
+
+
+
+<div class="card card-block"> 
+    <h4 class="card-title">{{joke.setup}}</h4>
+    <p class="card-text" [hidden] = "joke.hide">{{joke.punchline}}</p>
+    <a class="btn btn-primary"(click)="joke.toggle(joke)">{{joke.buttonName}}</a>
 </div>

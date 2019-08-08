@@ -1,7 +1,4 @@
-<h1>
-  What did the cheese say when it looked in the mirror ?
-  <p>Halloumi (hello me)</p>
-</h1>
+
 <!--
   In Angular we can take nateive core features
   of HTML and enhance them ...for instance
@@ -44,13 +41,28 @@
   propety and not the HTML attribute
 
   This is why this is called Iput Property Binding and not 
-  Input Attribute Binding.
+  Input Attribute Binding
 
   [hidden] is the DOM propert.
 
 -->
-<div class="card card-block" *ngFor="let joke of jokes">
+<!-- <div class="card card-block" *ngFor="let joke of jokes"> -->
+
+<!--
+<div class="card card-block" *ngFor="let joke of jokes"> 
   <h4 class="card-title">{{joke.setup}}</h4>
   <p class="card-text" [hidden] = "joke.hide">{{joke.punchline}}</p>
   <a class="btn btn-primary"(click)="joke.toggle(joke)">{{joke.buttonName}}</a>
+</div>
+
+
+We also need to bind the output event property on our parent JokeList
+Component so we can add the joke that gets output to the list of jokes
+
+
+-->
+
+<div>
+   <joke-form-app (jokeCreated)="addJoke($event)"></joke-form-app>
+   <app-joke *ngFor="let j of jokes" [joke]="j"></app-joke>
 </div>
