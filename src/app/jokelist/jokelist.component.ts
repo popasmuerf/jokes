@@ -3,7 +3,7 @@ import {Joke} from '../joke/joke'
 /*
   Breaking this down, in the template, we bind the
   jokeCreated property like so:
-  
+
   <joke-form (jokeCreated)="addJoke($event)"><joke-form>
 
 
@@ -69,7 +69,7 @@ export class JokelistComponent implements OnInit {
 
 
   addJoke(joke){
-    this.jokes.unshift(joke)
+    this.jokes.unshift(joke);
   }
 
 

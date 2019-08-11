@@ -4,11 +4,11 @@
   of HTML and enhance them ...for instance
   we can take HTML attributes and make them more
   dynamic by wrapping them in the "[]" brackets.
-  In this way can bind values dynamically to html 
+  In this way can bind values dynamically to html
   attributes where as before it was :
 
     <p hidden>{{joke.punchline}} >
-    
+
   and now it is :
 
       <p [hidden] = false> {{joke.punkchline}}</p>
@@ -18,7 +18,7 @@
 
   HTML Attribute vs DOM property.
   ==========================================
-  There is a very important distinction between an HTML 
+  There is a very important distinction between an HTML
   attribute and a DOM property.  We need to understand this
   if we are to make use of binding in Agular
 
@@ -40,7 +40,7 @@
   So when we wirte [hidden] we are manpulating the DOM
   propety and not the HTML attribute
 
-  This is why this is called Iput Property Binding and not 
+  This is why this is called Iput Property Binding and not
   Input Attribute Binding
 
   [hidden] is the DOM propert.
@@ -49,7 +49,7 @@
 <!-- <div class="card card-block" *ngFor="let joke of jokes"> -->
 
 <!--
-<div class="card card-block" *ngFor="let joke of jokes"> 
+<div class="card card-block" *ngFor="let joke of jokes">
   <h4 class="card-title">{{joke.setup}}</h4>
   <p class="card-text" [hidden] = "joke.hide">{{joke.punchline}}</p>
   <a class="btn btn-primary"(click)="joke.toggle(joke)">{{joke.buttonName}}</a>
@@ -63,6 +63,6 @@ Component so we can add the joke that gets output to the list of jokes
 -->
 
 <div>
-   <joke-form-app (jokeCreated)="addJoke($event)"></joke-form-app>
+   <app-joke-form (jokeCreated)="addJoke($event)"></app-joke-form>
    <app-joke *ngFor="let j of jokes" [joke]="j"></app-joke>
 </div>

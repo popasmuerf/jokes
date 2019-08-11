@@ -1,10 +1,27 @@
+<!--
+So we just added two template-only variables
+that bind to the input values provided within the setup
+and punchline fields.
+
+We must take care to understand that we not assume
+that these variables will be availble within our
+
+javascript/typescript code within our associated component.
+
+We can however use these values bound to these template variables
+anywhere within our template....including passing these values to
+the createJoke() method.....
+
+-->
+
+
 <div class="card card-block">
   <h4 class="card-title"Create Joke></h4>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Enter the setup">
+    <input type="text" class="form-control" placeholder="Enter the setup" #setup>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Enter the punchline">
+    <input type="text" class="form-control" placeholder="Enter the punchline" #punchline>
   </div>
-  <button type="button" class="btn btn-primary" (click)="createJoke()">Create</button>
+  <button type="button" class="btn btn-primary" (click)="createJoke(setup.value, punchline.value)">Create</button>
 </div>

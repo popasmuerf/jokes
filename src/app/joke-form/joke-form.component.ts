@@ -13,7 +13,7 @@ import { Joke } from '../joke/joke';
 
   We have now create an output eventpropety on the component.
 
-  The name between the <> on the EventEmitter is the type 
+  The name between the <> on the EventEmitter is the type
   of the thing that will be output by this property.
   The syntax abouve is called generics a.
 
@@ -38,8 +38,11 @@ export class JokeFormComponent implements OnInit {
   }
 
 
-  createJoke(){
-    this.jokeCreated.emit(new Joke("A setup","A punchline",true));
+  createJoke(setup:string, punchline:string){
+    let joke = new Joke("A setup","A punchline",true);
+    joke.setup = setup ;
+    joke.punchline = punchline
+    this.jokeCreated.emit(joke);
   }
 
 }
